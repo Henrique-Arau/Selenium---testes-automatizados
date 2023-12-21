@@ -55,5 +55,15 @@ public class LoginTest {
 		Assert.assertThrows(NoSuchElementException.class, () -> browser.findElement(By.id("usuario-logado")));
 		//Assert.assertEquals("Usuário e senha inválidos.", browser.findElement(By.id("senha-invalido")).getText() );
 	}
+	
+	@Test
+	public void naoDeveriaAcessarPaginaRestritaSemEstaLogado() {
+		
+		this.browser.navigate().to("http://localhost:8080/leiloes/2");
+		
+		Assert.assertTrue(browser.getCurrentUrl().equals("http://localhost:8080/login"));
+		Assert.assertFalse(browser.getPageSource().contains("Dados do Leilão"));
+		
+	}
 
 }
