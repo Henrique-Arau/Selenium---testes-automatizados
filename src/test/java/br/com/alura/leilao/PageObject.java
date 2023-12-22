@@ -1,5 +1,7 @@
 package br.com.alura.leilao;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -16,6 +18,11 @@ public class PageObject {
     	} else {
     		this.browser = browser;	
     	}
+    	
+//    	Testes de requisição assincronas
+//    	this.browser.manage().timeouts()
+//    	.implicitlyWait(5, TimeUnit.SECONDS)
+//    	.pageLoadTimeout(10, TimeUnit.SECONDS);
 	}
 	
 	public void fechar() {
